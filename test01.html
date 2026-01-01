@@ -1,45 +1,69 @@
 <!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AR test01</title>
-  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <!-- model-viewer（3D表示用） -->
+  <script type="module"
+    src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
+  </script>
 
   <style>
-    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-    header { padding:10px 14px; font-size:14px; }
-    model-viewer { width:100vw; height:100vh; background:#fff; }
-
-    /* 画面に固定するARボタン（スクロール不要） */
-    .fixed-btn{
-      position: fixed;
-      left: 14px;
-      bottom: 14px;
-      z-index: 9999;
-      padding: 12px 16px;
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: #fff;
+    }
+    header {
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+    model-viewer {
+      width: 100vw;
+      height: 70vh;
+      background: #fff;
+    }
+    .btn {
+      display: block;
+      margin: 10px 14px;
+      padding: 14px;
       font-size: 16px;
+      text-align: center;
       border: 1px solid #333;
-      border-radius: 10px;
-      background: white;
+      border-radius: 12px;
       text-decoration: none;
+      color: #000;
+      background: #f9f9f9;
     }
   </style>
 </head>
 
 <body>
-  <header>ARテスト：test01（下のボタンを押してください）</header>
+  <header>ARテスト：test01</header>
 
+  <!-- 共通：3D表示（全端末） -->
   <model-viewer
     src="test01.glb"
-    ios-src="test01.usdz"
-    ar
-    ar-modes="quick-look"
     camera-controls
-    alt="AR model test01">
+    auto-rotate
+    alt="3D model test01">
   </model-viewer>
 
-  <!-- iPhone/iPad：確実にAR Quick Lookが起動するボタン（固定表示） -->
-  <a class="fixed-btn" href="test01.usdz">iPhone/iPad：ARで開く</a>
+  <!-- iPhone / iPad：確実にAR Quick Look -->
+  <a class="btn" href="test01.usdz">
+    📱 iPhone / iPad：ARで表示
+  </a>
+
+  <!-- Android：Scene Viewer を明示起動 -->
+  <a class="btn"
+     href="intent://arvr.google.com/scene-viewer/1.0
+     ?file=https://hidemichiokamoto-dotcom.github.io/ar-test20260101/test01.glb
+     &mode=ar_only
+     #Intent;scheme=https;package=com.google.android.googlequicksearchbox;end;">
+    🤖 Android：ARで表示
+  </a>
+
 </body>
 </html>
