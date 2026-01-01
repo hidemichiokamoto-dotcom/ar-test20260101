@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>AR test01</title>
 
-  <!-- model-viewer（3D表示用） -->
+  <!-- model-viewer（WebXR対応） -->
   <script type="module"
     src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js">
   </script>
@@ -22,48 +22,23 @@
     }
     model-viewer {
       width: 100vw;
-      height: 70vh;
+      height: 85vh;
       background: #fff;
-    }
-    .btn {
-      display: block;
-      margin: 10px 14px;
-      padding: 14px;
-      font-size: 16px;
-      text-align: center;
-      border: 1px solid #333;
-      border-radius: 12px;
-      text-decoration: none;
-      color: #000;
-      background: #f9f9f9;
     }
   </style>
 </head>
 
 <body>
-  <header>ARテスト：test01</header>
+  <header>ARテスト：test01（ARボタンを押してください）</header>
 
-  <!-- 共通：3D表示（全端末） -->
   <model-viewer
     src="test01.glb"
+    ios-src="test01.usdz"
+    ar
+    ar-modes="webxr quick-look"
     camera-controls
-    auto-rotate
-    alt="3D model test01">
+    alt="AR model test01">
   </model-viewer>
-
-  <!-- iPhone / iPad：確実にAR Quick Look -->
-  <a class="btn" href="test01.usdz">
-    📱 iPhone / iPad：ARで表示
-  </a>
-
-  <!-- Android：Scene Viewer を明示起動 -->
-  <a class="btn"
-     href="intent://arvr.google.com/scene-viewer/1.0
-     ?file=https://hidemichiokamoto-dotcom.github.io/ar-test20260101/test01.glb
-     &mode=ar_only
-     #Intent;scheme=https;package=com.google.android.googlequicksearchbox;end;">
-    🤖 Android：ARで表示
-  </a>
 
 </body>
 </html>
