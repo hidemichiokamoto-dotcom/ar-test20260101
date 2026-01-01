@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AR test01</title>
+
+  <!-- 3D/ARを表示するための部品（model-viewer） -->
+  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
+
+  <style>
+    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+    header { padding: 10px 14px; font-size: 14px; }
+    model-viewer { width: 100vw; height: calc(100vh - 44px); }
+  </style>
+</head>
+
+<body>
+  <header>ARテスト：test01（ARボタンを押してください）</header>
+
+  <model-viewer
+    src="test01.glb"
+    ios-src="test01.usdz"
+    ar
+    ar-modes="webxr scene-viewer quick-look"
+    camera-controls
+    alt="AR model test01">
+  </model-viewer>
+
+</body>
+</html>
