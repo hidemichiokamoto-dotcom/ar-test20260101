@@ -7,20 +7,22 @@
   <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 
   <style>
-    body { margin: 0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-    header { padding: 10px 14px; font-size: 14px; }
-    model-viewer { width: 100vw; height: calc(100vh - 60px); background: #fff; }
+    body { margin:0; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+    header { padding:10px 14px; font-size:14px; }
+    model-viewer { width:100vw; height:100vh; background:#fff; }
 
-    /* ARボタンの見た目（押しやすく） */
-    .ar-btn{
+    /* 画面に固定するARボタン（スクロール不要） */
+    .fixed-btn{
       position: fixed;
       left: 14px;
       bottom: 14px;
+      z-index: 9999;
       padding: 12px 16px;
       font-size: 16px;
       border: 1px solid #333;
       border-radius: 10px;
       background: white;
+      text-decoration: none;
     }
   </style>
 </head>
@@ -32,13 +34,12 @@
     src="test01.glb"
     ios-src="test01.usdz"
     ar
-    ar-modes="quick-look webxr scene-viewer"
+    ar-modes="quick-look"
     camera-controls
     alt="AR model test01">
-    
-    <!-- これがARボタン -->
-    <button slot="ar-button" class="ar-btn">ARで表示</button>
   </model-viewer>
 
+  <!-- iPhone/iPad：確実にAR Quick Lookが起動するボタン（固定表示） -->
+  <a class="fixed-btn" href="test01.usdz">iPhone/iPad：ARで開く</a>
 </body>
 </html>
